@@ -1,0 +1,14 @@
+.card_movies{
+    list-style: none;
+    font-size: 1.5rem;
+}
+h5 {
+    padding: 0%;
+    margin: 3% 0% 4% 0%;
+}
+img {
+    border-radius: 4%;
+    background-color: beige;
+    border: solid beige 2px;
+    width: 100%;
+}
