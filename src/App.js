@@ -1,17 +1,25 @@
 import React from 'react';
+import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { ContainerMovies } from './components/ContainerMovies.js';
+import { DetailMovie } from './components/DetailMovie';
+import { Home } from './components/Home.js';
 
 function App() {
   return (
-    <>
-      <header>
-        <h1>Movie House</h1>
-      </header>
+    <BrowserRouter>
+      <div className='header'>
+        <header>
+          <Link to='/'> <h1>Movie House</h1> </Link>
+        </header>
+      </div>
+
       <main>
-        <ContainerMovies />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/detail/:detailId' element={<DetailMovie />} />
+        </Routes>
       </main>
-    </>
+    </BrowserRouter>
   );
 }
 
