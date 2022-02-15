@@ -1,4 +1,4 @@
-*{
+* {
     text-decoration: none;
     box-sizing: border-box;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -9,18 +9,18 @@
     height: 100px;
     text-align: center;
   }
-  h1{
+  .header h1 {
     font-size: 40px;
   }
-  h1:hover {
+  .header h1:hover {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #833ce0, 0 0 40px #833ce0,
     0 0 50px #833ce0, 0 0 60px #833ce0, 0 0 70px #833ce0;
   }
-
   body {
     background-color: rgb(14, 31, 77);
     background-image: url('./sky2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    
   }
