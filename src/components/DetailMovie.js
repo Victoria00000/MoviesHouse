@@ -1,11 +1,19 @@
 import React from 'react';
+import { useEffect, useState } from 'react';
 import css from './DetailMovie.module.css';
-import details from '../details.json';
+import { useParams } from 'react-router-dom';
+import { Fetch } from './Fetch';
 
 export const DetailMovie = () => {
+    const {detailId} = useParams(); console.log(detailId);
+    const [details, setDetails] = useState();
+    useEffect(() => { 
+        Fetch(`/movie/${detailId}`).then(rtas => setDetails(rtas));
+    }, [detailId]);
+
     const srcImg = 'https://image.tmdb.org/t/p/w300';
     return (
-        <div className={css.details}>
+        <div className={css.details_}>
             <img src={srcImg + details.poster_path} alt='img' />
             <div className={css.info}>
                 <h4>Title: {details.title}</h4>

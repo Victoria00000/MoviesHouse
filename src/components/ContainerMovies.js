@@ -2,20 +2,13 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import css from './ContainerMovies.module.css';
 import { CardMovies } from './CardMovies';
+import { Fetch } from './Fetch';
 
 export const ContainerMovies = () => {
-    
-    const [data, setdata] = useState([]);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/discover/movie', {
-            headers: {
-                Authorization:
-                    "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYjJlN2Q0ODgxZWZhODE4Y2RmOGY3M2E3MGMwNmZhOCIsInN1YiI6IjYyMGFhNzhkYTMxM2I4MDBiNWNmYjc0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8szRIxcTL_b77Cn976wq3O2rfP89TCOlfkPAL3x6SYc",
-                "Content-Type": "application/json;charset=utf-8",
-            },
-        }).then(rta => {console.log(rta); return rta.json();})
-             .then(rtas => setdata(rtas.results));
+        Fetch('/discover/movie').then(rtas => setData(rtas.results));
     }, []);
 
     return (
