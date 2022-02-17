@@ -1,4 +1,3 @@
-import React from 'react';
 import { ContainerMovies } from './ContainerMovies';
 import { Search } from './Search.js';
 
