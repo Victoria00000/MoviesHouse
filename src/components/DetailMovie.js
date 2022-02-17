@@ -5,11 +5,16 @@ import { useParams } from 'react-router-dom';
 import { Fetch } from './Fetch';
 
 export const DetailMovie = () => {
-    const {detailId} = useParams(); console.log(detailId);
-    const [details, setDetails] = useState();
-    useEffect(() => { 
-        Fetch(`/movie/${detailId}`).then(rtas => setDetails(rtas));
+    const { detailId } = useParams(); console.log(detailId);
+    const [details, setDetails] = useState(null);
+    useEffect(() => {
+        Fetch(`/movie/${detailId}`).then(rtas => {
+            console.log(rtas);
+            return setDetails(rtas)
+        });
     }, [detailId]);
+
+    if (!details) { return null; };
 
     const srcImg = 'https://image.tmdb.org/t/p/w300';
     return (
