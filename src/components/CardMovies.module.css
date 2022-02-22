@@ -4,17 +4,18 @@
     background-color: rgb(14, 31, 77);
     border: solid rgb(14, 31, 77) 3.5px;
     border-radius: 4%;
+    box-shadow: 4px 4px 6px 1px rgba(0, 0, 0, 0.513);
 }
 h5 {
     padding: 0% 3% 0% 3%;
     margin: 3% 0% 4% 0%;
 }
 img {
-    background-color: beige;
-    border-radius: 4%;
+    background-color: rgb(14, 31, 77);
+    border-radius: 4% 4% 2% 2%;
     width: 100%;
 }
 .card_movies:hover {
     opacity: 0.75;
-    border: solid green 2px;
+    border: solid #833ce0d3 2px;
 }
