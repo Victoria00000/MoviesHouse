@@ -2,17 +2,22 @@ import { useEffect, useState } from 'react';
 import css from './DetailMovie.module.css';
 import { useParams } from 'react-router-dom';
 import { Fetch } from './Fetch';
+import { LoadingDesing } from './LoadingDesing';
 
 export const DetailMovie = () => {
     const { detailId } = useParams(); console.log(detailId);
+    const [Loading, setLoading] = useState(true);
     const [details, setDetails] = useState(null);
     useEffect(() => {
+        setLoading(true);
         Fetch(`/movie/${detailId}`).then(rtas => {
+            setLoading(false);
             console.log(rtas);
             return setDetails(rtas)
         });
     }, [detailId]);
 
+    if (Loading) { return <LoadingDesing/>; };
     if (!details) { return null; };
 
     const srcImg = 'https://image.tmdb.org/t/p/w300';
@@ -22,7 +27,7 @@ export const DetailMovie = () => {
             <div className={css.info}>
                 <h4>Title: {details.title}</h4>
                 <p>Sinopsis: {details.overview}</p>
-                <p>Genres: {details.genres.map((gen) => gen.name + ' - ')}</p>
+                <p>Genres: {details.genres.map((gen) => gen.name).join(' - ')}</p>
             </div>
         </div>
     )
