@@ -1,4 +1,4 @@
-const API = 'https://api.themoviedb.org/3/';
+const API = 'https://api.themoviedb.org/3';
 
 export const Fetch = (path) => {
     return fetch(API + path, {
