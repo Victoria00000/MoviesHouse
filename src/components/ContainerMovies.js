@@ -16,7 +16,7 @@ export const ContainerMovies = () => {
 
     useEffect(() => {
         setLoading(true);
-        const searchURL = search ? '/search/movie?=query' + search : '/discover/movie';
+        const searchURL = search ? '/search/movie?api_key=TUAPIKEY&query=' + search : '/discover/movie';
         Fetch(searchURL).then(rtas => {
             setLoading(false);
             return (setData(rtas.results));
