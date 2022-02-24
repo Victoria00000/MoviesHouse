@@ -10,27 +10,22 @@ function useQuery() { return new URLSearchParams(useLocation().search) };
 
 export const ContainerMovies = () => {
     const [data, setData] = useState([]);
-    const [Loading, setLoading] = useState(true);
     const [Page, setPage] = useState(1);
 
     const query = useQuery();
     const search = query.get('search');
 
     useEffect(() => {
-        setLoading(true);
-        const searchURL = search ? '/search/movie?api_key=TUAPIKEY&query=' + search : '/discover/movie';
+        const searchURL = search ? `/search/movie?api_key=TUAPIKEY&query= ${search} &page= ${Page}` : `/discover/movie?page= ${Page}`;
         Fetch(searchURL).then(rtas => {
-            setLoading(false);
-            return (setData(rtas.results));
+            return (setData(prevData => prevData.concat(rtas.results)));
         });
     }, [search, Page]);
-
-    if (Loading) { return <LoadingDesing />; };
 
     const Next = () => setPage(prevPage => prevPage + 1);
 
     return (
-        <InfiniteScroll dataLength={data.length} hasMore={true} next={Next} >
+        <InfiniteScroll dataLength={data.length} hasMore={true} next={Next} loader={<LoadingDesing />} >
             <ul className={css.ContainerMovies}>
                 {data.map((obj) => {
                     return (<CardMovies key={obj.id} obj={obj} />)
