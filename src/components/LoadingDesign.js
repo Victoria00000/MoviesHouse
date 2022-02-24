@@ -1,7 +1,7 @@
-import css from './LoadingDesing.module.css';
+import css from './LoadingDesign.module.css';
 import { ImSpinner9 } from 'react-icons/im';
 
-export const LoadingDesing = () => {
+export const LoadingDesign = () => {
     return (
         <div className={css.loading}> <ImSpinner9 size={50} className={css.spinner} /> </div>
     )

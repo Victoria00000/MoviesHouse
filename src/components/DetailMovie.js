@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import css from './DetailMovie.module.css';
 import { useParams } from 'react-router-dom';
 import { Fetch } from './Fetch';
-import { LoadingDesing } from './LoadingDesing';
+import { LoadingDesign } from './LoadingDesign';
 
 export const DetailMovie = () => {
     const { detailId } = useParams(); console.log(detailId);
@@ -17,7 +17,7 @@ export const DetailMovie = () => {
         });
     }, [detailId]);
 
-    if (Loading) { return <LoadingDesing/>; };
+    if (Loading) { return <LoadingDesign/>; };
     if (!details) { return null; };
 
     const srcImg = 'https://image.tmdb.org/t/p/w300';
