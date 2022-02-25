@@ -1,0 +1,10 @@
+.divNoResulsts {
+    margin-top: 7%;
+    display:flex;
+    width: 100vw;
+    height: 25vh;
+    justify-content: center;
+}
+h2 {
+    margin-left: 10px;
+}
