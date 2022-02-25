@@ -3,6 +3,7 @@ import css from './DetailMovie.module.css';
 import { useParams } from 'react-router-dom';
 import { Fetch } from './Fetch';
 import { LoadingDesign } from './LoadingDesign';
+import imgPlaceholder from '../imgPlaceholder.png';
 
 export const DetailMovie = () => {
     const { detailId } = useParams(); console.log(detailId);
@@ -17,13 +18,13 @@ export const DetailMovie = () => {
         });
     }, [detailId]);
 
-    if (Loading) { return <LoadingDesign/>; };
+    if (Loading) { return <LoadingDesign />; };
     if (!details) { return null; };
 
-    const srcImg = 'https://image.tmdb.org/t/p/w300';
+    const srcImg = details.poster_path ? 'https://image.tmdb.org/t/p/w300' + details.poster_path : imgPlaceholder;
     return (
         <div className={css.details_}>
-            <img src={srcImg + details.poster_path} alt='img' />
+            <img src={srcImg} alt='img' />
             <div className={css.info}>
                 <h4>Title: {details.title}</h4>
                 <p>Sinopsis: {details.overview}</p>
