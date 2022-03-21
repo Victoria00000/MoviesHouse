@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Link, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { DetailMovie } from './components/DetailMovie';
@@ -9,7 +8,7 @@ function App() {
     <BrowserRouter>
       <div className='header'>
         <header>
-          <Link to='/'> <h1>Movie House</h1> </Link>
+          <Link to='/'> <h1>Trending Movies</h1> </Link>
         </header>
       </div>
 
@@ -21,6 +20,6 @@ function App() {
       </main>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

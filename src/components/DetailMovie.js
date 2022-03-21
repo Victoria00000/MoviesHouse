@@ -3,7 +3,7 @@ import css from './DetailMovie.module.css';
 import { useParams } from 'react-router-dom';
 import { Fetch } from './Fetch';
 import { LoadingDesign } from './LoadingDesign';
-import imgPlaceholder from '../imgPlaceholder.png';
+import imgPlaceholder from './imgPlaceholder.png';
 
 export const DetailMovie = () => {
     const { detailId } = useParams(); console.log(detailId);
@@ -26,9 +26,11 @@ export const DetailMovie = () => {
         <div className={css.details_}>
             <img src={srcImg} alt='img' />
             <div className={css.info}>
-                <h4>Title: {details.title}</h4>
-                <p>Sinopsis: {details.overview}</p>
-                <p>Genres: {details.genres.map((gen) => gen.name).join(' - ')}</p>
+                <div className={css.text}>
+                    <h4>Title: {details.title}</h4>
+                    <p>Sinopsis: {details.overview}</p>
+                    <p>Genres: {details.genres.map((gen) => gen.name).join(' - ')}</p>
+                </div>
             </div>
         </div>
     )
