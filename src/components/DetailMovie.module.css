@@ -23,3 +23,11 @@ img {
         max-width: 45vw;
     }
 }
+@media (max-width: 516px) {
+    .info{
+        margin-top: 8px;
+    }
+    img{
+        margin-top: 5px;
+    }
+}
