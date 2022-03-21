@@ -1,6 +1,7 @@
 import { ContainerMovies } from './ContainerMovies';
 import { Search } from './Search.js';
 import { useLocation } from 'react-router-dom';
+import { BackArrow } from './BackArrow';
 
 function useQuery() { return new URLSearchParams(useLocation().search) };
 
@@ -12,6 +13,7 @@ export const Home = () => {
         <>
             <Search />
             <ContainerMovies key={search} />
+            <BackArrow/>
         </>
     );
 };
